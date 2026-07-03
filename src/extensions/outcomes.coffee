@@ -197,6 +197,7 @@ class OutcomeService
     headers.oauth_signature = @signer.build_signature_raw @service_url_oauth, @service_url_parts, 'POST', headers, @consumer_secret
 
     Authorization:     'OAuth realm="",' + ("#{key}=\"#{utils.special_encode(val)}\"" for key, val of headers).join ','
+    'User-Agent':      'ims-lti/3.0.2'
     'Content-Type':    'application/xml'
     'Content-Length':  body.length
 
